@@ -5,6 +5,9 @@ require('./test_helper');
 
 import typeScriptServices = require('typescript-services-api');
 
+interface INonInstantiatedTest1 extends typeScriptServices.ts.CompilerHost {}
+interface INonInstantiatedTest2 extends typeScriptServices.TypeScript.ISpan {}
+
 describe('typescript-services-api', () => {
   it('should export the "ts" module', () => {
     assert(typeScriptServices.ts);
