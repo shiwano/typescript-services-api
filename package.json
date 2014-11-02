@@ -45,7 +45,9 @@
     "sinon": "^1.10.3",
     "source-map-support": "^0.2.7"
   },
-  "keywords": [],
+  "keywords": [
+    "typescript"
+  ],
   "dependencies": {
     "typescript": "1.1.0-1"
   },
