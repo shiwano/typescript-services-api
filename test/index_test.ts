@@ -6,11 +6,11 @@ require('./test_helper');
 import typeScriptServices = require('typescript-services-api');
 
 describe('typescript-services-api', () => {
-  it('should export the "ts" object', function() {
+  it('should export the "ts" module', function() {
     assert(typeScriptServices.ts);
   });
 
-  it('should export the "TypeScript" object', function() {
+  it('should export the "TypeScript" module', function() {
     assert(typeScriptServices.TypeScript);
   });
 });
