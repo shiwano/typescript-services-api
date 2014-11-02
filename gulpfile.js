@@ -22,7 +22,7 @@ var tsProject = plugins.typescript.createProject({
 });
 
 var mochaOptions = {
-  reporter: 'spec'
+  reporter: 'nyan'
 };
 
 gulp.task('jshint', function() {
