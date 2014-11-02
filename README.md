@@ -1,6 +1,6 @@
 # typescript-services-api [![Build Status](https://secure.travis-ci.org/shiwano/typescript-services-api.png?branch=master)](http://travis-ci.org/shiwano/typescript-services-api)
 
-A TypeScript services as commonJS module.
+A TypeScript language services as CommonJS module.
 
 ## Getting Started
 Install the module with: `npm install typescript-services-api`
