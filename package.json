@@ -31,7 +31,6 @@
   "devDependencies": {
     "del": "^0.1.2",
     "gulp": "^3.8.7",
-    "gulp-changed": "^1.0.0",
     "gulp-espower": "^0.9.0",
     "gulp-jshint": "^1.8.4",
     "gulp-license": "^1.0.0",
@@ -42,7 +41,6 @@
     "gulp-tslint": "^1.3.0",
     "gulp-typescript": "^2.1.0",
     "power-assert": "^0.9.0",
-    "sinon": "^1.10.3",
     "source-map-support": "^0.2.7"
   },
   "keywords": [

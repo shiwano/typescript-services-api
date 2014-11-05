@@ -1,8 +1,9 @@
-/// <reference path="../index.d.ts" />
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="./index.d.ts" />
+/// <reference path="./typings/tsd.d.ts" />
 
-require('./test_helper');
+require('source-map-support').install();
 
+import assert = require('power-assert');
 import typeScriptServices = require('typescript-services-api');
 
 interface INonInstantiatedTest1 extends typeScriptServices.ts.CompilerHost {}

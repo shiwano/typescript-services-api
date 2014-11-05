@@ -1,6 +1,5 @@
 'use strict';
 
-var fs = require('fs');
 var gulp = require('gulp');
 var del = require('del');
 var plugins = require('gulp-load-plugins')();
@@ -8,11 +7,11 @@ var plugins = require('gulp-load-plugins')();
 var paths = {
   gulpfile: 'gulpfile.js',
   src: 'index.js',
-  test: 'test/**/*_test.ts',
+  test: 'index_test.ts',
   testDest: '.tmp/',
   packageJson: 'package.json',
   testPackageDir: 'node_modules/typescript-services-api',
-  typescriptFiles: 'test/**/*.ts'
+  typescriptFiles: ['index_test.ts', 'index.d.ts']
 };
 
 var tsProject = plugins.typescript.createProject({
@@ -63,39 +62,14 @@ gulp.task('setUpTestPackage', function() {
 });
 
 function test(watching) {
-  return gulp.src(paths.typescriptFiles)
+  return gulp.src(paths.test)
     .pipe(plugins.plumber({errorHandler: function() {
       if (!watching) { process.exit(1); }
     }}))
-    .pipe(plugins.changed(paths.testDest, {extension: '.js', hasChanged: hasChangedForTest}))
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.typescript(tsProject)).js
     .pipe(plugins.espower())
     .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest(paths.testDest))
     .pipe(plugins.spawnMocha(mochaOptions));
-}
-
-function hasChangedForTest(stream, callback, sourceFile, destPath) {
-  if (!fs.existsSync(destPath)) {
-    stream.push(sourceFile);
-    return callback();
-  }
-
-  var destStat = fs.statSync(destPath);
-
-  if (sourceFile.stat.mtime > destStat.mtime) {
-    stream.push(sourceFile);
-  } else if (/_test.ts$/.test(sourceFile.path)) {
-    var testTargetPath = sourceFile.path
-      .replace(/_test.ts$/, '.ts')
-      .replace(process.cwd() + '/test', process.cwd());
-    var testTargetStat = fs.statSync(testTargetPath);
-
-    if (testTargetStat.mtime > destStat.mtime) {
-      stream.push(sourceFile);
-    }
-  }
-
-  callback();
 }
