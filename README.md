@@ -2,6 +2,8 @@
 
 A TypeScript language services as CommonJS module.
 
+*NOTE:* TypeScript has been exported as a commonJS module from v1.4.1.
+
 ## Getting Started
 Install the module with: `npm install typescript-services-api`
 
